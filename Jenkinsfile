@@ -12,11 +12,13 @@ pipeline {
 
   stages {
   
-stage("Create new tag") {
+   stage("Create new tag") {
          when {
                expression {env.BRANCH_NAME == 'master'}
             }                     
             steps {
+       del      sshagent (credentials: ['RSA'])                        
+          del      {
                 script {
                    
                         def tag = sh(returnStdout: true, script: "git tag | tail -1").trim()
@@ -33,9 +35,10 @@ stage("Create new tag") {
                         """
                     
                 }
+           del   }
                 
             }
-        }
+        }                 
 
   }
 }
