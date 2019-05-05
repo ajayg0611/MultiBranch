@@ -1,6 +1,6 @@
 def getTagversion (String oldtagVersion)
 {
-    oldtagVersion = oldtagVersion.substring(1)
+    oldtagVersion = oldtagVersion.(1)
     println oldtagVersion
     def versionParts = oldtagVersion.tokenize('.')
     println versionParts
@@ -41,47 +41,6 @@ def getTagversion (String oldtagVersion)
         minor = 0
         version = major+ "." + minor + "." +newtimetag
       }
-        println oldtagVersion
-    def versionParts1 = oldtagVersion.tokenize('.')
-    println versionParts1
-    major = versionParts1[0].toInteger()
-    minor = versionParts1[1].toInteger()
-    timetag = versionParts1[2].toString()
-    this.month = timetag.substring(4,6).toInteger()
-    
-    
-    Calendar now1 = Calendar.getInstance();
-    currmonth = (now1.get(Calendar.MONTH) +1)
-    
-    Date date1 = new Date()
-    //println date.getTime()
-    //println date.format( 'yyyy-MM-ddHH:mm:ss.S' )
-    String newtimetag1 = date1.format( 'yyyyMMdd-HHmm' ).toString()
-    //println strtimetag
-    //timetag= timetag.replaceAll(":","-")
-    
-    
-    if (currmonth==month)
-    {
-        
-        version =  major+ "." + minor + "." +newtimetag1
-    }
-    else
-    {
-      if (month < 9)
-      {
-    
-        minor = minor +1
-        version = major+ "." + minor + "." +newtimetag1
-                
-      }
-      else 
-      {
-        major = this.major +1
-        minor = 0
-        version = major+ "." + minor + "." +newtimetag1
-      }
     }
     return version
-}
 }
